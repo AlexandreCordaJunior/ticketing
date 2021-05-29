@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-depl
+  labels:
+    app: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+        - name: client
+          image: alexandrecordajunior/ticketing-client
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-srv
+  labels:
+    app: client
+spec:
+  selector:
+    app: client
+  ports:
+    - name: client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: client
+  labels:
+    app: client
+data:
+  config.js: |-
+    window.Config = {
+      API_URL: "https://auth.c-85bf660.kyma.shoot.live.k8s-hana.ondemand.com",
+    };
