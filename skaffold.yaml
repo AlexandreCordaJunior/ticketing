@@ -8,7 +8,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: alexandrecordajunior/auth
+    - image: alexandrecordajunior/ticketing-auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -16,7 +16,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: alexandrecordajunior/client
+    - image: alexandrecordajunior/ticketing-client
       context: client
       docker:
         dockerfile: Dockerfile
