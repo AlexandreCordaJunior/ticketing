@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 import { Password } from '../services/password';
 
 // An interface that describes the properties

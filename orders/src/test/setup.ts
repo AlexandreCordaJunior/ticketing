@@ -1,8 +1,8 @@
 // noinspection ES6ConvertVarToLetConst
 
 import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
+import * as mongoose from "mongoose";
+import * as jwt from "jsonwebtoken";
 
 jest.mock('../nats-wrapper');
 

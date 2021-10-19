@@ -1,7 +1,7 @@
-import express, { Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
 import { Ticket } from '../models/tickets';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/api/tickets', async (req: Request, res: Response) => {
     const tickets = await Ticket.find({});
